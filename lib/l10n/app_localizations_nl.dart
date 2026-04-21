@@ -12,6 +12,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appTitle => 'WMS Pro';
 
   @override
+  String get welcomeBack => 'Welkom terug';
+
+  @override
+  String hello(String name) {
+    return 'Hallo, $name';
+  }
+
+  @override
+  String get signInSubtitle => 'Meld u aan bij uw account';
+
+  @override
   String get login => 'Inloggen';
 
   @override
@@ -99,6 +110,27 @@ class AppLocalizationsNl extends AppLocalizations {
   String get createInvoice => 'Factuur aanmaken';
 
   @override
+  String get newInvoice => 'Nieuwe factuur';
+
+  @override
+  String get issueInvoice => 'Factuur versturen';
+
+  @override
+  String get saveAsDraft => 'Opslaan als concept';
+
+  @override
+  String get lineItems => 'Regelitems';
+
+  @override
+  String get noLineItems => 'Geen regelitems';
+
+  @override
+  String get total => 'Totaal';
+
+  @override
+  String get addLineItem => 'Regel toevoegen';
+
+  @override
   String get invoiceNumber => 'Factuur #';
 
   @override
@@ -117,10 +149,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get shareInvoice => 'PDF delen';
 
   @override
-  String get addLineItem => 'Regel toevoegen';
+  String get previewInvoice => 'PDF bekijken';
 
   @override
   String get unitPrice => 'Eenheidsprijs';
+
+  @override
+  String get itemDetails => 'Artikeldetails';
+
+  @override
+  String get billingDetails => 'Factuurgegevens';
 
   @override
   String get scanBarcode => 'Barcode scannen';

@@ -12,6 +12,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'WMS Pro';
 
   @override
+  String get welcomeBack => 'Welcome back';
+
+  @override
+  String hello(String name) {
+    return 'Hello, $name';
+  }
+
+  @override
+  String get signInSubtitle => 'Sign in to your account';
+
+  @override
   String get login => 'Log In';
 
   @override
@@ -99,6 +110,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createInvoice => 'Create Invoice';
 
   @override
+  String get newInvoice => 'New Invoice';
+
+  @override
+  String get issueInvoice => 'Issue Invoice';
+
+  @override
+  String get saveAsDraft => 'Save as Draft';
+
+  @override
+  String get lineItems => 'Line Items';
+
+  @override
+  String get noLineItems => 'No line items';
+
+  @override
+  String get total => 'Total';
+
+  @override
+  String get addLineItem => 'Add Line Item';
+
+  @override
   String get invoiceNumber => 'Invoice #';
 
   @override
@@ -117,10 +149,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shareInvoice => 'Share PDF';
 
   @override
-  String get addLineItem => 'Add Line Item';
+  String get previewInvoice => 'Preview PDF';
 
   @override
   String get unitPrice => 'Unit Price';
+
+  @override
+  String get itemDetails => 'Item Details';
+
+  @override
+  String get billingDetails => 'Billing Details';
 
   @override
   String get scanBarcode => 'Scan Barcode';

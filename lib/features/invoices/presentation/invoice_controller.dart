@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:isar/isar.dart';
+import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:wms_pro/core/constants/app_routes.dart';
 import 'package:wms_pro/features/auth/presentation/auth_controller.dart';
@@ -94,7 +96,7 @@ class InvoiceController extends GetxController {
       final authCtrl = Get.find<AuthController>();
       final existing = selectedInvoice.value;
       final invoice = Invoice()
-        ..id = existing?.id ?? -1
+        ..id = existing?.id ?? Isar.autoIncrement
         ..invoiceNumber = existing?.invoiceNumber ??
             await repository.nextInvoiceNumber()
         ..customerName = customerNameController.text.trim()
@@ -113,6 +115,18 @@ class InvoiceController extends GetxController {
       error.value = 'Failed to save invoice';
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  Future<void> previewPdf(Invoice invoice) async {
+    try {
+      final pdf = await InvoicePdfService.build(invoice);
+      await Printing.layoutPdf(
+        onLayout: (PdfPageFormat format) async => pdf.save(),
+        name: '${invoice.invoiceNumber}.pdf',
+      );
+    } catch (e) {
+      error.value = 'Failed to preview PDF';
     }
   }
 

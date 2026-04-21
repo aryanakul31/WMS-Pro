@@ -9,60 +9,71 @@ import 'app_colors.dart';
 
 abstract final class AppTextStyles {
   static TextStyle get heading1 => GoogleFonts.montserrat(
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
-        color: AppColors.bananaMania,
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
+        color: AppColors.text01,
         letterSpacing: -0.5,
       );
 
   static TextStyle get heading2 => GoogleFonts.montserrat(
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: FontWeight.w600,
-        color: AppColors.bananaMania,
-        letterSpacing: -0.3,
+        color: AppColors.text01,
+        letterSpacing: 0,
       );
 
   static TextStyle get heading3 => GoogleFonts.montserrat(
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: FontWeight.w600,
-        color: AppColors.bananaMania,
+        color: AppColors.text01,
+        letterSpacing: 0,
       );
 
+  /// Carbon body-short-02 — 16px / 0.16px tracking.
   static TextStyle get bodyLarge => GoogleFonts.inter(
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: AppColors.bananaMania,
+        color: AppColors.text01,
+        letterSpacing: 0.16,
       );
 
+  /// Carbon body-short-01 — 14px / 0.16px tracking.
   static TextStyle get bodyMedium => GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.w400,
-        color: AppColors.bananaMania,
+        color: AppColors.text01,
+        letterSpacing: 0.16,
       );
 
+  /// Carbon caption-01 / label-01 — 12px / 0.32px tracking.
   static TextStyle get bodySmall => GoogleFonts.inter(
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: AppColors.onSurfaceVariant,
+        color: AppColors.text02,
+        letterSpacing: 0.32,
       );
 
+  /// Carbon label — 12px semibold / 0.32px tracking.
   static TextStyle get label => GoogleFonts.inter(
-        fontSize: 11,
+        fontSize: 12,
         fontWeight: FontWeight.w600,
-        color: AppColors.onSurfaceVariant,
-        letterSpacing: 0.8,
+        color: AppColors.text02,
+        letterSpacing: 0.32,
       );
 
+  /// Button label — 14px semibold / 0.16px tracking.
   static TextStyle get button => GoogleFonts.montserrat(
         fontSize: 14,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
         color: AppColors.white,
-        letterSpacing: 0.5,
+        letterSpacing: 0.16,
       );
 
+  /// Caption — 12px light / 0.32px tracking.
   static TextStyle get caption => GoogleFonts.inter(
-        fontSize: 11,
+        fontSize: 12,
         fontWeight: FontWeight.w300,
-        color: AppColors.onSurfaceVariant,
+        color: AppColors.text03,
+        letterSpacing: 0.32,
       );
 }

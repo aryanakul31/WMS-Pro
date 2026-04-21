@@ -16,8 +16,7 @@ class WmsApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'WMS Pro',
       theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.splash,
       getPages: AppPages.pages,

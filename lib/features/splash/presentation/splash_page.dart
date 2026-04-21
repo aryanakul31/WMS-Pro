@@ -10,7 +10,6 @@ class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.darkCrimson,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -18,14 +17,11 @@ class SplashPage extends GetView<SplashController> {
             Container(
               width: 80,
               height: 80,
-              decoration: BoxDecoration(
-                color: AppColors.mustardYellow,
-                borderRadius: BorderRadius.circular(20),
-              ),
+              color: AppColors.blue60,
               child: const Icon(
                 Icons.inventory_2_rounded,
                 size: 44,
-                color: AppColors.darkCrimson,
+                color: AppColors.white,
               ),
             ),
             const SizedBox(height: 20),
@@ -36,7 +32,7 @@ class SplashPage extends GetView<SplashController> {
               style: AppTextStyles.bodySmall,
             ),
             const SizedBox(height: 48),
-            const CircularProgressIndicator(color: AppColors.mustardYellow),
+            const CircularProgressIndicator(),
           ],
         ),
       ),

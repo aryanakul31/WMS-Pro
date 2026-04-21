@@ -104,6 +104,24 @@ abstract class AppLocalizations {
   /// **'WMS Pro'**
   String get appTitle;
 
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back'**
+  String get welcomeBack;
+
+  /// No description provided for @hello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}'**
+  String hello(String name);
+
+  /// No description provided for @signInSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to your account'**
+  String get signInSubtitle;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
@@ -278,6 +296,48 @@ abstract class AppLocalizations {
   /// **'Create Invoice'**
   String get createInvoice;
 
+  /// No description provided for @newInvoice.
+  ///
+  /// In en, this message translates to:
+  /// **'New Invoice'**
+  String get newInvoice;
+
+  /// No description provided for @issueInvoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Issue Invoice'**
+  String get issueInvoice;
+
+  /// No description provided for @saveAsDraft.
+  ///
+  /// In en, this message translates to:
+  /// **'Save as Draft'**
+  String get saveAsDraft;
+
+  /// No description provided for @lineItems.
+  ///
+  /// In en, this message translates to:
+  /// **'Line Items'**
+  String get lineItems;
+
+  /// No description provided for @noLineItems.
+  ///
+  /// In en, this message translates to:
+  /// **'No line items'**
+  String get noLineItems;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @addLineItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Line Item'**
+  String get addLineItem;
+
   /// No description provided for @invoiceNumber.
   ///
   /// In en, this message translates to:
@@ -314,17 +374,29 @@ abstract class AppLocalizations {
   /// **'Share PDF'**
   String get shareInvoice;
 
-  /// No description provided for @addLineItem.
+  /// No description provided for @previewInvoice.
   ///
   /// In en, this message translates to:
-  /// **'Add Line Item'**
-  String get addLineItem;
+  /// **'Preview PDF'**
+  String get previewInvoice;
 
   /// No description provided for @unitPrice.
   ///
   /// In en, this message translates to:
   /// **'Unit Price'**
   String get unitPrice;
+
+  /// No description provided for @itemDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Item Details'**
+  String get itemDetails;
+
+  /// No description provided for @billingDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Billing Details'**
+  String get billingDetails;
 
   /// No description provided for @scanBarcode.
   ///

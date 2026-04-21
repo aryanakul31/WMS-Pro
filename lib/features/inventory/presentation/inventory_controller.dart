@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:isar/isar.dart';
 import 'package:wms_pro/core/constants/app_routes.dart';
 import 'package:wms_pro/features/inventory/data/inventory_repository.dart';
 import 'package:wms_pro/features/inventory/domain/stock_item.dart';
@@ -83,7 +84,7 @@ class InventoryController extends GetxController {
       final existing = selectedItem.value;
       final now = DateTime.now();
       final item = StockItem()
-        ..id = existing?.id ?? -1
+        ..id = existing?.id ?? Isar.autoIncrement
         ..sku = sku
         ..name = name
         ..description = descriptionController.text.trim()
