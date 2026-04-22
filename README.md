@@ -84,23 +84,29 @@ Each feature follows: `domain/` → `data/` → `presentation/` (GetX controller
 
 ---
 
-## Brand
-
-| Token | Value |
-|-------|-------|
-| Primary | Dark Crimson `#4F0015` |
-| Action/CTA | Red NCS `#C70039` |
-| Accent | Mustard Yellow `#D4A708` |
-| Background | Banana Mania `#FFF0B5` |
-
-Typography placeholders: **Montserrat** (headings) · **Inter** (body).  
-Swap instructions are in [`app_text_styles.dart`](lib/core/theme/app_text_styles.dart).
-
----
-
 ## Branches
 
 | Branch | Purpose |
 |--------|---------|
 | `main` | Stable releases |
 | `feature/UI` | Pixel-perfect UI — Deliverable 1 |
+
+## Screens
+
+### Auth & Dashboard
+![Login](screenshots/Login.png)
+![Dashboard](screenshots/Dashboard.png)
+
+### Inventory
+![Inventory List](screenshots/Inventory.png)
+![Add Stock Item](screenshots/AddStockItem.png)
+
+### Invoices
+![Invoice List](screenshots/InvoiceList.png)
+![Create Invoice](screenshots/CreateInvoice.png)
+![Add Line Item](screenshots/AddLineItem.png)
+![Invoice Detail](screenshots/Invoice.png)
+![PDF Preview](screenshots/PDFPreviewInvoice.png)
+
+### Settings
+![Settings](screenshots/Settings.png)

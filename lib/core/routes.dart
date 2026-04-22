@@ -54,7 +54,9 @@ class AppPages {
 
 class _SplashBinding extends Bindings {
   @override
-  void dependencies() => Get.lazyPut(() => SplashController());
+  void dependencies() {
+    Get.put(SplashController());
+  }
 }
 
 class _ShellBinding extends Bindings {

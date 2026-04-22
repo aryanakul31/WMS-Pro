@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_pro/core/theme/app_colors.dart';
 import 'package:wms_pro/core/theme/app_text_styles.dart';
+import 'package:wms_pro/l10n/app_localizations.dart';
 import 'auth_controller.dart';
 
 class LoginPage extends GetView<AuthController> {
@@ -9,54 +10,51 @@ class LoginPage extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      backgroundColor: AppColors.darkCrimson,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 28),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 24),
+                const SizedBox(height: 32),
                 Row(
                   children: [
                     Container(
                       width: 44,
                       height: 44,
-                      decoration: BoxDecoration(
-                        color: AppColors.mustardYellow,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                      color: AppColors.blue60,
                       child: const Icon(Icons.inventory_2_rounded,
-                          color: AppColors.darkCrimson, size: 24),
+                          color: AppColors.white, size: 24),
                     ),
                     const SizedBox(width: 12),
-                    Text('WMS Pro', style: AppTextStyles.heading2),
+                    Text(l10n.appTitle, style: AppTextStyles.heading2),
                   ],
                 ),
                 const SizedBox(height: 48),
-                Text('Welcome back', style: AppTextStyles.heading1),
+                Text(l10n.welcomeBack, style: AppTextStyles.heading1),
                 const SizedBox(height: 8),
                 Text(
-                  'Sign in to your account',
+                  l10n.signInSubtitle,
                   style: AppTextStyles.bodyMedium
-                      .copyWith(color: AppColors.onSurfaceVariant),
+                      .copyWith(color: AppColors.text02),
                 ),
-                const SizedBox(height: 36),
+                const SizedBox(height: 40),
                 TextField(
                   controller: controller.emailController,
                   keyboardType: TextInputType.emailAddress,
                   autocorrect: false,
                   style: AppTextStyles.bodyLarge,
-                  decoration: const InputDecoration(labelText: 'Email'),
+                  decoration: InputDecoration(labelText: l10n.emailLabel),
                 ),
                 const SizedBox(height: 16),
                 TextField(
                   controller: controller.passwordController,
                   obscureText: true,
                   style: AppTextStyles.bodyLarge,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  decoration: InputDecoration(labelText: l10n.passwordLabel),
                   onSubmitted: (_) => controller.login(),
                 ),
                 const SizedBox(height: 12),
@@ -68,11 +66,11 @@ class LoginPage extends GetView<AuthController> {
                     child: Text(
                       err,
                       style: AppTextStyles.bodySmall
-                          .copyWith(color: AppColors.redNCS),
+                          .copyWith(color: AppColors.danger),
                     ),
                   );
                 }),
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
                 Obx(() => ElevatedButton(
                       onPressed: controller.isLoading.value
                           ? null
@@ -86,8 +84,13 @@ class LoginPage extends GetView<AuthController> {
                                 color: AppColors.white,
                               ),
                             )
-                          : const Text('Log In'),
+                          : Text(l10n.loginButton),
                     )),
+                const SizedBox(height: 48),
+                Text(
+                  l10n.defaultAdminNote,
+                  style: AppTextStyles.caption.copyWith(fontSize: 11),
+                ),
               ],
             ),
           ),

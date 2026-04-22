@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:wms_pro/core/theme/app_colors.dart';
 import 'package:wms_pro/core/theme/app_text_styles.dart';
 import 'package:wms_pro/features/invoices/domain/invoice.dart';
+import 'package:wms_pro/l10n/app_localizations.dart';
 import 'invoice_controller.dart';
 
 class InvoiceListPage extends GetView<InvoiceController> {
@@ -10,8 +11,9 @@ class InvoiceListPage extends GetView<InvoiceController> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text('Invoices')),
+      appBar: AppBar(title: Text(l10n.invoices)),
       body: Obx(() {
         if (controller.isLoading.value && controller.invoices.isEmpty) {
           return const Center(child: CircularProgressIndicator());
@@ -24,49 +26,70 @@ class InvoiceListPage extends GetView<InvoiceController> {
                 Text(controller.error.value!, style: AppTextStyles.bodyMedium),
                 const SizedBox(height: 16),
                 ElevatedButton(
-                    onPressed: controller.loadInvoices,
-                    child: const Text('Try Again')),
+                  onPressed: controller.loadInvoices,
+                  child: Text(l10n.tryAgain),
+                ),
               ],
             ),
           );
         }
         if (controller.invoices.isEmpty) {
           return Center(
-            child: Text('No invoices yet', style: AppTextStyles.bodyMedium),
+            child: Text(l10n.noInvoices, style: AppTextStyles.bodyMedium),
           );
         }
         return RefreshIndicator(
           onRefresh: controller.loadInvoices,
-          color: AppColors.redNCS,
-          child: ListView.builder(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+          color: AppColors.blue60,
+          child: ListView.separated(
+            padding: EdgeInsets.zero,
             itemCount: controller.invoices.length,
+            separatorBuilder: (_, __) => const Divider(height: 1),
             itemBuilder: (_, i) {
               final inv = controller.invoices[i];
-              return Card(
-                child: ListTile(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  title: Text(inv.invoiceNumber,
-                      style: AppTextStyles.bodyLarge),
-                  subtitle: Text(
-                    inv.customerName,
-                    style: AppTextStyles.bodySmall,
-                  ),
-                  trailing: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        '${inv.currency} ${inv.totalAmount.toStringAsFixed(2)}',
-                        style: AppTextStyles.bodyLarge
-                            .copyWith(color: AppColors.mustardYellow),
-                      ),
-                      const SizedBox(height: 4),
-                      _StatusChip(inv.status),
-                    ],
-                  ),
+              return Material(
+                color: AppColors.background,
+                child: InkWell(
                   onTap: () => controller.openView(inv),
+                  hoverColor: AppColors.layer01Hover,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(inv.invoiceNumber,
+                                  style: AppTextStyles.bodyLarge),
+                              const SizedBox(height: 4),
+                              Text(
+                                inv.customerName,
+                                style: AppTextStyles.bodySmall,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              '${inv.currency} ${inv.totalAmount.toStringAsFixed(2)}',
+                              style: AppTextStyles.heading3,
+                            ),
+                            const SizedBox(height: 4),
+                            _StatusChip(inv.status),
+                          ],
+                        ),
+                        const SizedBox(width: 8),
+                        const Icon(
+                          Icons.chevron_right_rounded,
+                          color: AppColors.text03,
+                          size: 20,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               );
             },
@@ -74,6 +97,7 @@ class InvoiceListPage extends GetView<InvoiceController> {
         );
       }),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'fab_invoices',
         onPressed: controller.openCreate,
         child: const Icon(Icons.add),
       ),
@@ -87,17 +111,21 @@ class _StatusChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isDraft = status == InvoiceStatus.draft;
+
+    // IBM Carbon Tag: 10% opacity blue bg, blue 60 text, 24px radius
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: BoxDecoration(
-        color: isDraft ? AppColors.surfaceVariant : AppColors.mustardYellow,
-        borderRadius: BorderRadius.circular(6),
+        color: isDraft ? AppColors.layer01 : AppColors.blue60.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(24),
       ),
       child: Text(
-        isDraft ? 'Draft' : 'Issued',
+        isDraft ? l10n.statusDraft : l10n.statusIssued,
         style: AppTextStyles.label.copyWith(
-          color: isDraft ? AppColors.onSurfaceVariant : AppColors.black,
+          fontSize: 10,
+          color: isDraft ? AppColors.text02 : AppColors.blue60,
         ),
       ),
     );
