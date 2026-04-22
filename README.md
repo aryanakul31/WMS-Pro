@@ -94,19 +94,19 @@ Each feature follows: `domain/` → `data/` → `presentation/` (GetX controller
 ## Screens
 
 ### Auth & Dashboard
-![Login](screenshots/Login.png)
-![Dashboard](screenshots/Dashboard.png)
+<img src="screenshots/Login.png" width="300">
+<img src="screenshots/Dashboard.png" width="300">
 
 ### Inventory
-![Inventory List](screenshots/Inventory.png)
-![Add Stock Item](screenshots/AddStockItem.png)
+<img src="screenshots/Inventory.png" width="300">
+<img src="screenshots/AddStockItem.png" width="300">
 
 ### Invoices
-![Invoice List](screenshots/InvoiceList.png)
-![Create Invoice](screenshots/CreateInvoice.png)
-![Add Line Item](screenshots/AddLineItem.png)
-![Invoice Detail](screenshots/Invoice.png)
-![PDF Preview](screenshots/PDFPreviewInvoice.png)
+<img src="screenshots/InvoiceList.png" width="300">
+<img src="screenshots/CreateInvoice.png" width="300">
+<img src="screenshots/AddLineItem.png" width="300">
+<img src="screenshots/Invoice.png" width="300">
+<img src="screenshots/PDFPreviewInvoice.png" width="300">
 
 ### Settings
-![Settings](screenshots/Settings.png)
+<img src="screenshots/Settings.png" width="300">
